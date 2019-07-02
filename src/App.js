@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Scoreboard from './components/scoreboard';
+import Choices from './components/choices';
+import Brain from './components/brain';
+import GameContextProvider from './contexts/GameContext'
+import Popup from './popup';
 
 function App() {
+   
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <h1>Rock Paper Scissors</h1>
+      <GameContextProvider>
+          <Scoreboard />
+          <Brain />
+      </GameContextProvider>
+      </div>
     </div>
   );
 }
