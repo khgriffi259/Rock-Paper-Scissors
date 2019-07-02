@@ -22,7 +22,7 @@ const Choices = (props) => {
             cpu: {...gameItems.cpu, choice: cpuChoice}
         });  
 
-        const result = props.getWinner(userChoice, cpuChoice);
+    props.getWinner(userChoice, cpuChoice);
         
     } 
 

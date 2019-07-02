@@ -1,10 +1,9 @@
 import React from 'react';
 import './App.css';
 import Scoreboard from './components/scoreboard';
-import Choices from './components/choices';
 import Brain from './components/brain';
 import GameContextProvider from './contexts/GameContext'
-import Popup from './popup';
+
 
 function App() {
    
