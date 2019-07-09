@@ -1,12 +1,36 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { GameContext } from '../contexts/GameContext';
 import Choices from './choices';
-import Popup from '../popup';
+import Scoreboard from './scoreboard';
+import PlayerIcon from './playerIcon'
+import CpuIcon from './cpuIcon'
+import Popup from './popup';
 
     const Brain = (props) => {
 
-        const { gameItems, setGameItems } = useContext(GameContext);
+        const { playerScore, cpuScore, resetChoices } = useContext(GameContext);
         
+        const [state, setState] = useState(
+            {show: false}
+        );
+        
+        const [result, setResult] = useState('');
+        
+        const togglePopup = () => {
+            setState({show: !state.show});
+        }
+        
+        const resetGame = () => {
+            resetChoices();
+            togglePopup();
+            removeLosingIcon();
+        }
+        
+        const removeLosingIcon = () => {
+            document.querySelector('.cpu-losing-icon').style.display='none';
+            document.querySelector('.user-losing-icon').style.display='none';
+        }
+
         const getWinner = (userChoice, cpuChoice) => {
             const matchup = `${userChoice}${cpuChoice}`;
             console.log(matchup);
@@ -32,32 +56,38 @@ import Popup from '../popup';
         }
         
         const win = () => {
-            const result = new Popup('Result', 'You win!');
-            result.init();
-            document.querySelector('.result').style.color = 'green';
-             setGameItems({...gameItems, 
-                 user:{...gameItems.user, score: gameItems.user.score + 1}
-             })
+            playerScore();
+            setResult('You Win!');
+            document.querySelector('.cpu-losing-icon').style.display = 'block';
+            togglePopup();
+            // document.querySelector('.result').style.color='green';
         }
         
         const lose = () => {
-            const result = new Popup('Result', 'You lose!');
-            result.init();
-            document.querySelector('.result').style.color = 'red';
-            setGameItems({...gameItems, 
-                cpu:{...gameItems.cpu, score: gameItems.cpu.score + 1}
-            })
+            cpuScore();
+            setResult('You Lose!');
+            document.querySelector('.user-losing-icon').style.display = 'block';
+            togglePopup();
         }
         
         const tie = () => {
-            const result = new Popup('Result', `It's a tie!`);
-            result.init();
-            document.querySelector('.result').style.color = 'yellow';
+            setResult(`It's a tie!`);
+            togglePopup();            
         }
 
-        
-        return <Choices getWinner={getWinner}/>
-        
+        return(
+             <div>
+                <div className="choices_And_scoreboard">
+                    <PlayerIcon />
+                    <Scoreboard />
+                    <CpuIcon />
+                </div>
+                <Choices getWinner={getWinner}/>
+                    {state.show ? 
+                        <Popup show={state.show} resetGame={resetGame} result={result}/>
+                    : null}
+             </div>
+        )           
     }
 
     export default Brain

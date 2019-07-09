@@ -1,9 +1,7 @@
 import React from 'react';
 import './App.css';
-import Scoreboard from './components/scoreboard';
 import Brain from './components/brain';
-import GameContextProvider from './contexts/GameContext'
-
+import GameContextProvider from './contexts/GameContext';
 
 function App() {
    
@@ -12,9 +10,9 @@ function App() {
       <div className="container">
         <h1>Rock Paper Scissors</h1>
       <GameContextProvider>
-          <Scoreboard />
           <Brain />
       </GameContextProvider>
+      {/* <LoginForm /> */}
       </div>
     </div>
   );

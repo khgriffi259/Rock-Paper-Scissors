@@ -3,7 +3,7 @@ import { GameContext } from '../contexts/GameContext';
 
 const Choices = (props) => {
     
-    const { gameItems, setGameItems } = useContext(GameContext);
+    const {  setChoices, cpuScore } = useContext(GameContext);
    
     const getCpuChoice = () => {
         const cpuChoices = ['r', 'p', 's'];
@@ -14,18 +14,14 @@ const Choices = (props) => {
    
     const playGame = (e) => {
         const userChoice = e.target.id;
-    
         const cpuChoice = getCpuChoice();
-        setGameItems({
-            ...gameItems, 
-            user:{...gameItems.user, choice: e.target.id},
-            cpu: {...gameItems.cpu, choice: cpuChoice}
-        });  
+        setChoices(userChoice, cpuChoice);
 
-    props.getWinner(userChoice, cpuChoice);
-        
+        props.getWinner(userChoice, cpuChoice);
+
+
     } 
-
+    
     return (
         <div>
             <h1>Make Your Selection</h1>
