@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { GameContext } from '../contexts/GameContext';
+import Rainbow from './rainbow';
 
 const Choices = (props) => {
     
@@ -34,4 +35,4 @@ const Choices = (props) => {
     )
 }
 
-export default Choices
+export default Rainbow(Choices)

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { GameContext } from '../contexts/GameContext';
-
+import Rainbow from './rainbow';
 const Scoreboard = () => {
     const { gameItems } = useContext(GameContext);
 
@@ -14,4 +14,4 @@ const Scoreboard = () => {
     )
 }
 
-export default Scoreboard
+export default Rainbow(Scoreboard)
