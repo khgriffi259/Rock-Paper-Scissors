@@ -9,7 +9,8 @@ const Popup = ({show, resetGame, result }) => {
                     <div className="popup-close" onClick={resetGame}>X</div>
                     <div className="popup-content ">
                         <h2 className="">Result</h2>
-                        <p className="result" style={result==='You Win!' ? {color:'green'}: result==='You Lose!'? {color:'red'}: {color:'yellow'}}>{result}</p>
+                        {/* <p className="result" style={result==='You Win!' ? {color:'green'}: result==='You Lose!'? {color:'red'}: {color:'yellow'}}>{result}</p> */}
+                        <p className="result">{result}</p>
                         <div className="dialogue_buttons my-1">
                             <button className="btn popup-no" onClick={resetGame}>Play Again</button>
                         </div>

@@ -77,7 +77,7 @@ import Popup from './popup';
 
         return(
              <div>
-                <div className="choices_And_scoreboard">
+                <div className="selectedIcons_And_scoreboard">
                     <PlayerIcon />
                     <Scoreboard />
                     <CpuIcon />

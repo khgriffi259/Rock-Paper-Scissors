@@ -8,11 +8,13 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1>Rock Paper Scissors</h1>
-      <GameContextProvider>
-          <Brain />
-      </GameContextProvider>
-      {/* <LoginForm /> */}
+        <header>
+          <h1 className="title">Rock Paper Scissors</h1>
+        </header>
+        <GameContextProvider>
+            <Brain />
+        </GameContextProvider>
+        {/* <LoginForm /> */}
       </div>
     </div>
   );

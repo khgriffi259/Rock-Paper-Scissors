@@ -24,11 +24,9 @@ const PlayerIcon = () => {
     let userIcon = getUserIcon();
     
     return (
-        <div>
-            <div className="userSelectedChoice">
-                { userIcon  }
-                <div class="user-losing-icon"></div>
-            </div>
+        <div className="playerIcon">
+            { userIcon  }
+            <div class="user-losing-icon"></div>
         </div>
     )
 }

@@ -32,11 +32,9 @@ const CpuIcon = () => {
     
     
     return (
-        <div>
-            <div className="cpuSelectedChoice">
-                { userIcon  }
-                <div class="cpu-losing-icon"></div>
-            </div>
+        <div className="cpuIcon">
+            { userIcon  }
+            <div class="cpu-losing-icon"></div>
         </div>
     )
 }
